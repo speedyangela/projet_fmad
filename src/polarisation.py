@@ -1,8 +1,4 @@
 #QUESTION 3
-#Implémenter une méthode permettant de calculer l’ensemble des valeurs {dckcl(p),{ck,cl}∈C2}
-#pourunprofilp∈An etuneméthodepermettantdecalculerl’ensembledesvaleurs{dckcl(p),{ck,cl}∈
-#C2}pour un profil p∈Ln
-#.
 
 def calcul_dist_approbation(profil):
     n=len(profil)  #nombre de votants 
@@ -20,7 +16,7 @@ def calcul_dist_approbation(profil):
                 elif bulletin[k]==0 and bulletin[l]==1: #// l et pas k
                     n_lk+=1
             d_kl=abs(n_kl-n_lk) 
-            distances[(k,l)]=d_kl #on stocke la distance dans le dico associé au duel k et l
+            distances[(k,l)]=d_kl #on stocke la distance dans le dico associé au comparatif k et l
     return distances
 
 def calcul_dist_ordres(profil):
@@ -42,3 +38,27 @@ def calcul_dist_ordres(profil):
             d_kl=abs(n_kl-n_lk) 
             distances[(k,l)]=d_kl                       #même chose que méthode précédente 
     return distances
+
+#QUESTION 5
+def calcul_mesure_pola_approbation(p):
+    n=len(p)  
+    m=len(p[0])
+    distances=calcul_dist_approbation(p) #on utilise la distance d'approbation 
+    denominateur=((m*(m-1))/2)*n #2 parmis m=m!/(2!(m-2)!)=m(m-1)(m-2)!/(m-2)!2
+    somme=0 
+    for d_kl in distances.values():
+        x=(n-d_kl)/denominateur #on applique la formule du poly pour chaque k,l  de notre dico 
+        somme+=x # on somme tout pour avoir la formule 
+    return somme
+
+
+def calcul_mesure_pola_ordres(p):
+    n=len(p)  
+    m=len(p[0])
+    distances=calcul_dist_ordres(p) #on utilise la distance d'ordre
+    denominateur=((m*(m-1))/2)*n #2 parmis m=m!/(2!(m-2)!)=m(m-1)(m-2)!/(m-2)!2
+    somme=0 
+    for d_kl in distances.values():
+        x=(n-d_kl)/denominateur #on applique la formule du poly pour chaque k,l  de notre dico 
+        somme+=x # on somme tout pour avoir la formule 
+    return somme
