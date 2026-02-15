@@ -40,7 +40,7 @@ def generer_profil_ordres(n,m,p): #mêmes arguments que q1
     o_oppose=np.zeros(m, dtype=int) #on initialise o_oppose
     for i in range(m):  #on génère l'ordre de préférence opposé à o
         candidat=o[i] 
-        i_oppose=(m-1)-i    #on applique la formule du cours, en python on commence l'indice à 0 à m-1 donc c normal le décalage par rapport à la formule du sujet  
+        i_oppose=(m-1)-i    #on applique la formule du sujet, en python on commence l'indice à 0 à m-1 donc c normal le décalage par rapport à la formule du sujet  
         o_oppose[i_oppose]=candidat
     #sinon on aurait juste pu faire o_oppose=o[::-1] 
     profil=[]
