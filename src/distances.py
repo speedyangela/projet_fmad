@@ -13,7 +13,7 @@ def distance_spearman(b1,b2): #pour ordres
     m=len(b1) 
     l1=b1.tolist() #pour pouvoir utiliser .index() 
     l2=b2.tolist()
-    for i in range(m):
+    for i in range(m): #on cherche la position du candidat dans chaque bulletin 
         rang1=l1.index(i)
         rang2=l2.index(i)
         d+=abs(rang1-rang2)
