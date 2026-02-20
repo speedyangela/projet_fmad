@@ -134,11 +134,11 @@ def calcul_u2_kmeans_ordres(p, nb_lancements=10):
     u2=float('inf') #on met infini pour trouver mieux dès la premiere itération 
     for _ in range(nb_lancements):
         #initialiser deux centroïdes aléatoirement
-        centroide1=np.random.permutation(2, size=m)
-        centroide2=np.random.permutation(2, size=m)
+        centroide1=np.random.permutation(m)
+        centroide2=np.random.permutation(m)
         #On évite que les deux centroïdes soient identiques (sinon tout le monde va dans le même cluster)
-        while np.array_equal(centroide1, centroide2): #surtout si on a des pas beaucoup de candidats 
-            centroide2=np.random.permutation(2, size=m)
+        while np.array_equal(centroide1, centroide2): #surtout si on a pas beaucoup de candidats 
+            centroide2=np.random.permutation(m)
         changement=True
         while changement:
             #Étape 4: affecter chaque bulletin au cluster dont le centroïde est le plus proche

@@ -1,5 +1,7 @@
-#QUESTION 3
 
+from src.consensus import calcul_u1_approbation, calcul_u1_ordres, calcul_u2_kmeans_approbation, calcul_u2_kmeans_ordres
+
+#QUESTION 3
 def calcul_dist_approbation(profil):
     n=len(profil)  #nombre de votants 
     m=len(profil[0]) #nombre de candidats
@@ -62,3 +64,18 @@ def calcul_mesure_pola_ordres(p):
         x=(n-d_kl)/denominateur #on applique la formule du poly pour chaque k,l  de notre dico 
         somme+=x # on somme tout pour avoir la formule 
     return somme
+
+
+#QUESTION 14
+
+def calcul_phi_dh_approbation(p):
+    n=len(p)  
+    m=len(p[0])
+    diff=calcul_u1_approbation(p)-calcul_u2_kmeans_approbation(p)
+    return (2/(n*m))*diff
+
+def calcul_phi_ds_ordres(p):
+    n=len(p)  
+    m=len(p[0])
+    diff=calcul_u1_ordres(p)-calcul_u2_kmeans_ordres(p)
+    return ((4/(n*(m**2)))*diff)
