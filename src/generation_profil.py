@@ -25,11 +25,19 @@ def generer_profil_approbation(n,m,p):
     for i in range(nb_a_oppose):
         profil.append(a_oppose)    #...et a_oppose
     np.random.shuffle(profil) #on mélange les bulletins pour éviter tout les a d'abord et tout les a_oppose à la suite 
+    #Dans ces dernieres lignes de code, on affiche simplement le fait que ça a été initialisé et les informations liés à l'initialisation
+    print("\nProfil initialisé")
+    print("Votants :", n)
+    print("Candidats :", m)
+    print("Profil :")
+    for i, vote in enumerate(profil):
+        print("Votant", i+1, ":", vote)
     return np.array(profil) #on renvoie un tableau np car plus facile à manipuler 
 
 #QUESTION 2
 
 def generer_profil_ordres(n,m,p): #mêmes arguments que q1
+    #mêmes cas d'erreurs que la question 1 (pour le n et le p)
     if n % 2 != 0:
         raise ValueError("Le nombre de votants doit être pair")
     if p < 0 or p > 1:
@@ -48,7 +56,15 @@ def generer_profil_ordres(n,m,p): #mêmes arguments que q1
     nb_o=n-nb_o_oppose
     for i in range(nb_o):
         profil.append(o)
-    for i in range(nb_o_oppose):                         #même chose que q1
+    for i in range(nb_o_oppose): #même chose que q1
         profil.append(o_oppose)
     np.random.shuffle(profil)
+    print("\nProfil (ordres) initialisé")
+    print("Votants :", n)
+    print("Candidats :", m)
+    print("Profil :")
+    for i, vote in enumerate(profil):
+        print("Votant", i+1, ":", vote)
     return np.array(profil)
+
+generer_profil_ordres(10,5,1)
