@@ -25,14 +25,7 @@ def generer_profil_approbation(n,m,p):
     for i in range(nb_a_oppose):
         profil.append(a_oppose)    #...et a_oppose
     np.random.shuffle(profil) #on mélange les bulletins pour éviter tout les a d'abord et tout les a_oppose à la suite 
-    #Dans ces dernieres lignes de code, on affiche simplement le fait que ça a été initialisé et les informations liés à l'initialisation
-    print("\nProfil initialisé")
-    print("Votants :", n)
-    print("Candidats :", m)
-    print("Profil :")
-    for i, vote in enumerate(profil):
-        print("Votant", i+1, ":", vote)
-    return np.array(profil) #on renvoie un tableau np car plus facile à manipuler 
+    return np.array(profil) #on renvoie un tableau np car plus facile à manipuler
 
 #QUESTION 2
 
@@ -59,12 +52,6 @@ def generer_profil_ordres(n,m,p): #mêmes arguments que q1
     for i in range(nb_o_oppose): #même chose que q1
         profil.append(o_oppose)
     np.random.shuffle(profil)
-    print("\nProfil (ordres) initialisé")
-    print("Votants :", n)
-    print("Candidats :", m)
-    print("Profil :")
-    for i, vote in enumerate(profil):
-        print("Votant", i+1, ":", vote)
     return np.array(profil)
 
 
